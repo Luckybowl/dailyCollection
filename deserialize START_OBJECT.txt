@@ -1,0 +1,4 @@
+Can not deserialize instance of java.lang.String out of START_OBJECT token
+无法反序列化，遇到这种类型的错误，一般是服务器数据和客户端数据类型不一致。今天遇到的坑是，
+在一个方法里用两种情况去查询，得到的结果一个是对象数组[{}]，一个就是对象{}，导致数据类型没有对应上，
+牢记！
