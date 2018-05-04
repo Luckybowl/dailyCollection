@@ -1,0 +1,43 @@
+CREATE CONTINUOUS QUERY "cq_basic_rp" ON "k8s"
+BEGIN
+  SELECT sum(type) into "cpu/limit" FROM "cpu/usage" group by time(1m);
+END
+
+
+create continous query "cq1" on "k8s" begin select sum(value) into new_table_name from "cpu/limit" group by time(1m) end
+
+
+CREATE CONTINUOUS QUERY cq_1m ON _internal EVERY 10m BEGIN SELECT mean(system) INTO _internal.monitor.cp FROM _internal.monitor."cpu" GROUP BY time(1m) END
+
+CREATE CONTINUOUS QUERY cq_60m ON _internal RESAMPLE EVERY 10m FOR 60m BEGIN SELECT max(system) INTO _internal.monitor.cp FROM _internal.monitor."cpu" GROUP BY time(10m) END
+
+insert cp,host = 127.0.0.1,numMeasurements = 12, value =133;
+
+CREATE CONTINUOUS QUERY "cq_10" ON "cp"BEGIN SELECT mean("value")  INTO "averageprice"FROM "prices" GROUP BY time(10m)END
+
+CREATE RETENTION POLICY "one_day" ON "cp" DURATION 1d REPLICATION 1 DEFAULT
+
+CREATE CONTINUOUS QUERY "cq_am" ON "cp"BEGIN SELECT MEAN("value") INTO "flowersamount" FROM "flowers" GROUP BY time(10m)END
+
+CREATE CONTINUOUS QUERY "cq6" on "cp" begin select sum(price) into aa from a group by time(1m) end
+
+INSERT upc,host=serverA,region=us_west value=0.64
+
+CREATE CONTINUOUS QUERY "cq8" on "cp" begin select sum("value") into "cup" from "upc" group by time(1m) end
+CREATE RETENTION POLICY "default" ON "cp" DURATION 30d REPLICATION 1 DEFAULT
+
+select MEAN(value) from "cpu/usage" where labels =~ /.*primeton.com\/app-version.*/ and labels =~ /.*primeton.com\/app-name:application-01-name.*/ and time >now()-5m  group by time(1m);
+
+show TAG VALUES on "k8s" from "cpu/usage_rate" with KEY = "type";
+
+select MEAN(value) from "cpu/usage_rate","memory/usage" where time >now()-5m  group by time(1m) ;
+
+select * from "cpu/usage_rate","memory/usage" group by type order by time desc limit 1;
+
+select pod_name,TOP(value,5) from "cpu/usage";
+
+SELECT nodename,TOP(value,1) from "cpu/usage_rate" where time > now() -15m and nodename != '' group by nodename
+
+SELECT mean(value) from "memory/usage" where labels =~ /.*primeton.com\/app-code:hello4.*/ and labels =~ /.*primeton.com\/app-version:1.0.*/  and type='pod' and time > now() -15m group by time(1m)
+
+select * from "memory/usage" where pod_name=~ /teataa11-v1.*/ and type='pod' and time > now()-1m; 
