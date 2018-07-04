@@ -1,10 +1,11 @@
-
+import java.util.Map;
+import java.util.HashMap;
 public class SumOfTwoNum{
         static int temp;
         public static void main(String[] args){
             int[] nums ={2, 7, 11, 15,3,8,5};
             int target = 15;
-            nums = twoSum(nums,target);
+            nums = twoSum1(nums,target);
             System.out.print(nums);
         }
         public static int[] twoSum(int[] nums, int target) {
@@ -48,6 +49,20 @@ public class SumOfTwoNum{
             }
             System.arraycopy(nums,0,b,0,x);
             return b;
+        }
+
+        public static int[] twoSum1(int[] nums, int target) {
+            Map<Integer, Integer> map = new HashMap<>();
+            for(int i = 0; i < nums.length; i++){
+                map.put(nums[i], i);
+            }
+            for(int i = 0; i < nums.length; i++){
+                int complement = target - nums[i];
+                if (map.containsKey(complement) && map.get(complement) != i) {
+                    return new int[] {i, map.get(complement)};
+                }
+            }
+            throw new IllegalArgumentException("No two sum solution");
         }
     
 }
