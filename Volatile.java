@@ -5,9 +5,8 @@
  * Created on 2018年1月9日
  *******************************************************************************/
 
-package com.primeton.devops.spm.component.service;
 
-public class Test2 {
+public class Volatile {
 	public volatile int inc = 0;
 
 	public void increase() {
@@ -15,7 +14,7 @@ public class Test2 {
 	}
 
 	public static void main(String[] args) {
-		final Test2 test = new Test2();
+		final Volatile test = new Volatile();
 		for (int i = 0; i < 10; i++) {
 			new Thread() {
 				public void run() {
