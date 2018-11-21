@@ -1,5 +1,8 @@
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 
 public class Test1 {
@@ -24,6 +27,13 @@ public class Test1 {
         	}
         	
         }
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        System.out.println(df.format(new Date()));
         System.out.println(list);
+
+        Calendar beforeTime = Calendar.getInstance();
+        beforeTime.add(Calendar.MINUTE, -5);// 5分钟之前的时间
+        Date beforeD = beforeTime.getTime();
+        System.out.println(df.format(beforeD));
     }
 }
