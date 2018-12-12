@@ -1,0 +1,121 @@
+[WARNING] com.ctrip.ibu.platform:ibu-shark-sdk版本依赖冲突：[2.0.4]和[3.0.0]
+[WARNING] [Ctrip Group Enforcer Rules] Rule customDependencyRules : 因同一依赖存在版本冲突，本次跳过校验。
+[WARNING] Rule 2: org.apache.maven.plugins.enforcer.DependencyConvergence failed with message:
+Failed while enforcing releasability the error(s) are [
+Dependency convergence error for com.ctrip.ibu.platform:ibu-shark-sdk:3.0.0 paths to dependency are:
++-com.ctrip.tour.wireless:booking-service-web:2.0.0
+  +-com.ctrip.tour.wireless:infrastructure-common:8.1.2-SNAPSHOT
+    +-com.ctrip.tour.wireless:infrastructure-client:8.1.2-SNAPSHOT
+      +-com.ctrip.ibu.platform:ibu-shark-sdk:3.0.0
+and
++-com.ctrip.tour.wireless:booking-service-web:2.0.0
+  +-com.ctrip.ibu.platform:ibu-shark-sdk:2.0.4
+]
+[WARNING] Rule 10: ctripgroup.scm.rule.QBanDuplicateClasses failed with message:
+[ERROR] [Ctrip Group Enforcer Rules] find DuplicateClasses
+
+  Found in:
+    javax.servlet:javax.servlet-api:jar:3.1.0:compile
+    org.apache.tomcat.embed:tomcat-embed-core:jar:7.0.73:compile
+  Duplicate classes:
+    javax/servlet/http/Cookie.class
+    javax/servlet/ServletContext.class
+    javax/servlet/Registration.class
+    javax/servlet/http/HttpSessionContext.class
+    javax/servlet/http/HttpSessionListener.class
+    javax/servlet/FilterChain.class
+    javax/servlet/http/HttpServletRequestWrapper.class
+    javax/servlet/http/HttpSessionAttributeListener.class
+    javax/servlet/annotation/HandlesTypes.class
+    javax/servlet/http/HttpSessionBindingListener.class
+    javax/servlet/ServletRequestAttributeEvent.class
+    javax/servlet/ServletRequestWrapper.class
+    javax/servlet/annotation/ServletSecurity.class
+    javax/servlet/ServletRequestAttributeListener.class
+    javax/servlet/ServletContainerInitializer.class
+    javax/servlet/annotation/MultipartConfig.class
+    javax/servlet/ServletRequestEvent.class
+    javax/servlet/ServletRequest.class
+    javax/servlet/http/HttpServlet.class
+    javax/servlet/MultipartConfigElement.class
+    javax/servlet/http/HttpUtils.class
+    javax/servlet/AsyncContext.class
+    javax/servlet/SessionCookieConfig.class
+    javax/servlet/FilterConfig.class
+    javax/servlet/ServletResponseWrapper.class
+    javax/servlet/Registration$Dynamic.class
+    javax/servlet/descriptor/JspConfigDescriptor.class
+    javax/servlet/ServletResponse.class
+    javax/servlet/http/Part.class
+    javax/servlet/annotation/WebFilter.class
+    javax/servlet/http/HttpServletResponseWrapper.class
+    javax/servlet/AsyncListener.class
+    javax/servlet/annotation/HttpMethodConstraint.class
+    javax/servlet/SingleThreadModel.class
+    javax/servlet/ServletConfig.class
+    javax/servlet/HttpConstraintElement.class
+    javax/servlet/annotation/WebServlet.class
+    javax/servlet/http/HttpSessionActivationListener.class
+    javax/servlet/HttpMethodConstraintElement.class
+    javax/servlet/annotation/HttpConstraint.class
+    javax/servlet/http/HttpSessionBindingEvent.class
+    javax/servlet/http/NoBodyResponse.class
+    javax/servlet/DispatcherType.class
+    javax/servlet/ServletOutputStream.class
+    javax/servlet/descriptor/JspPropertyGroupDescriptor.class
+    javax/servlet/SessionTrackingMode.class
+    javax/servlet/GenericServlet.class
+    javax/servlet/ServletException.class
+    javax/servlet/annotation/ServletSecurity$EmptyRoleSemantic.class
+    javax/servlet/ServletContextListener.class
+    javax/servlet/Filter.class
+    javax/servlet/ServletRegistration.class
+    javax/servlet/ServletContextAttributeEvent.class
+    javax/servlet/AsyncEvent.class
+    javax/servlet/FilterRegistration.class
+    javax/servlet/http/HttpServletResponse.class
+    javax/servlet/ServletSecurityElement.class
+    javax/servlet/annotation/ServletSecurity$TransportGuarantee.class
+    javax/servlet/ServletContextAttributeListener.class
+    javax/servlet/Servlet.class
+    javax/servlet/http/HttpSession.class
+    javax/servlet/annotation/WebInitParam.class
+    javax/servlet/descriptor/TaglibDescriptor.class
+    javax/servlet/ServletContextEvent.class
+    javax/servlet/ServletRegistration$Dynamic.class
+    javax/servlet/http/NoBodyOutputStream.class
+    javax/servlet/RequestDispatcher.class
+    javax/servlet/UnavailableException.class
+    javax/servlet/http/HttpSessionEvent.class
+    javax/servlet/ServletRequestListener.class
+    javax/servlet/annotation/WebListener.class
+    javax/servlet/http/HttpServletRequest.class
+    javax/servlet/ServletInputStream.class
+    javax/servlet/FilterRegistration$Dynamic.class
+
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] booking-gateway-service ............................ SUCCESS [  1.445 s]
+[INFO] booking-service-dal ................................ SUCCESS [  0.671 s]
+[INFO] booking-service-contract ........................... SUCCESS [  0.078 s]
+[INFO] booking-service-web ................................ FAILURE [ 39.562 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 43.485 s
+[INFO] Finished at: 2018-12-11T11:05:35+08:00
+[INFO] Final Memory: 78M/1065M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-enforcer-plugin:1.3.1:enforce (ctrip-group-check) on project booking-service-web: Some Enforcer rules have failed. Look above for specific messages explaining why the rule failed. -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <goals> -rf :booking-service-web
+
+Process finished with exit code 1
